@@ -1,0 +1,16 @@
+# Local secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Dependencies and generated output
+node_modules/
+dist/
+build/
+*.log
+
+# Operating system files
+.DS_Store
+Thumbs.db

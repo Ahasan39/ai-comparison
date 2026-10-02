@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Body Target Calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <header class="page-header">
+      <p class="eyebrow">A starting point for your routine</p>
+      <h1>Body Target Calculator</h1>
+      <p class="intro">Turn your everyday numbers into approximate daily nutrition, hydration, and movement targets.</p>
+    </header>
+
+    <section class="panel" aria-labelledby="information-heading">
+      <div class="section-header">
+        <h2 id="information-heading">Your information</h2>
+        <p>All fields are required.</p>
+      </div>
+      <form id="target-form">
+        <div class="input-grid">
+          <div class="field">
+            <label for="weight">Weight (kg)</label>
+            <input id="weight" name="weight" type="number" min="30" max="300" step="0.1" required aria-describedby="weight-error">
+            <p class="error" id="weight-error" hidden></p>
+          </div>
+          <div class="field">
+            <label for="age">Age</label>
+            <input id="age" name="age" type="number" min="14" max="90" step="1" required aria-describedby="age-error">
+            <p class="error" id="age-error" hidden></p>
+          </div>
+          <div class="field">
+            <label for="sex">Sex</label>
+            <select id="sex" name="sex" required aria-describedby="sex-error">
+              <option value="">Select sex</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+            <p class="error" id="sex-error" hidden></p>
+          </div>
+          <div class="field">
+            <label for="height">Height (cm)</label>
+            <input id="height" name="height" type="number" min="120" max="230" step="0.1" required aria-describedby="height-error">
+            <p class="error" id="height-error" hidden></p>
+          </div>
+          <div class="field">
+            <label for="steps">Average daily steps</label>
+            <input id="steps" name="steps" type="number" min="0" max="40000" step="1" required aria-describedby="steps-help steps-error">
+            <p class="helper" id="steps-help">Use your normal average, not your maximum.</p>
+            <p class="error" id="steps-error" hidden></p>
+          </div>
+          <div class="field">
+            <label for="goal">Goal</label>
+            <select id="goal" name="goal" required aria-describedby="goal-error">
+              <option value="">Select your goal</option>
+              <option value="loss">Fat loss + muscle preservation</option>
+              <option value="maintain">Maintain</option>
+              <option value="gain">Lean muscle gain</option>
+            </select>
+            <p class="error" id="goal-error" hidden></p>
+          </div>
+        </div>
+        <button class="primary" type="submit">Calculate my targets</button>
+      </form>
+    </section>
+
+    <section id="results" class="results" aria-labelledby="results-heading" hidden>
+      <div class="section-header results-header">
+        <div>
+          <p class="eyebrow">Your daily starting point</p>
+          <h2 id="results-heading">Small steps. Clear targets.</h2>
+        </div>
+        <button id="recalculate" class="secondary" type="button">Recalculate</button>
+      </div>
+      <div class="results-grid">
+        <article class="result-card"><h3>Calories</h3><p class="result-number" id="calories-result"></p><p class="unit">kcal/day</p></article>
+        <article class="result-card"><h3>Protein</h3><p class="result-number" id="protein-result"></p><p class="unit">g/day</p></article>
+        <article class="result-card"><h3>Carbs</h3><p class="result-number" id="carbs-result"></p><p class="unit">g/day</p></article>
+        <article class="result-card"><h3>Fat</h3><p class="result-number" id="fat-result"></p><p class="unit">g/day</p></article>
+        <article class="result-card"><h3>Water</h3><p class="result-number" id="water-result"></p><p class="unit">L/day</p></article>
+        <article class="result-card"><h3>Step target</h3><p class="result-number" id="steps-result"></p><p class="unit">steps/day</p></article>
+      </div>
+      <p class="summary" id="summary"></p>
+    </section>
+    <p class="note">These targets are approximate. The formula does not account for all individual factors. Ages 14–17 should seek individualized guidance before using weight-change targets.</p>
+    <p id="announcement" class="visually-hidden" role="status" aria-live="polite" aria-atomic="true"></p>
+  </main>
+</body>
+</html>
